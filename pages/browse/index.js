@@ -13,7 +13,7 @@ import { BellIcon } from '@heroicons/react/24/solid'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { PlayIcon } from '@heroicons/react/24/solid'
 import { InformationCircleIcon } from '@heroicons/react/24/outline'
-import Carrousel from '@/components/Carrousel';
+// import Carrousel from '@/components/Carrousel';
 import PreviewCard from '@/components/PreviewCard';
 
 
@@ -47,6 +47,10 @@ export default function Browse() {
                 setTrendingMovies(data.results);
             })
     }, [])
+
+
+
+
     return (
         <div className="bg-black-100 w-screen h-screen flex flex-col">
             <header className="flex absolute z-10 w-screen pt-3 px-12 justify-between bg-gradient-to-b from-black">
@@ -132,28 +136,8 @@ export default function Browse() {
                 <div className='absolute bg-cover bg-center w-full top-0 h-full bg-black/80' style={{ backgroundImage: `url(${imageURL}${heroMovie?.backdrop_path})` }} />
             </div>
 
-            <PreviewCard trendingMovies={trendingMovies}></PreviewCard>
+            <PreviewCard tilesData={trendingMovies} title={"Popular en Netflix"} style={"mt-[-175px]"}></PreviewCard>
 
-            {/* <Carrousel></Carrousel> */}
-            {/* <div 
-            id='Popular on Netflix' className='flex-col w-full h-3 z-10 px-4 ml-4 opacity-25'>
-                <div className='flex gap-2 px-4 w-full h-36'>
-                    {
-                        POPULARLIST.map(({ title, imageURL }) => {
-                            return (
-                                <div
-                                    key={title}
-                                    // width="420"
-                                    // height="120"
-                                    className='flex w-96 h-[120px] bg-red-600'
-                                // alt={title}
-                                >
-                                    {title}
-                                </div>
-                            )
-                        })}
-                </div>
-            </div> */}
         </div>
     )
 }
